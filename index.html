@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsidian Clone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar">
+            <button id="newFolderBtn">New Folder</button>
+            <button id="newNoteBtn">New Note</button>
+            <div id="folderStructure"></div>
+        </div>
+        <div id="mainContent">
+            <div id="tabBar">
+                <button id="viewerTab" class="tab active">Viewer</button>
+                <button id="graphTab" class="tab">Graph View</button>
+            </div>
+            <div id="noteViewer">
+                <div id="noteControls">
+                    <button id="editBtn">Edit</button>
+                    <button id="saveBtn" style="display: none;">Save</button>
+                </div>
+                <div id="noteContent"></div>
+                <textarea id="noteEditor" style="display: none;"></textarea>
+            </div>
+            <div id="graphView" style="display: none;">
+                <div id="graphControls">
+                    <input type="text" id="searchInput" placeholder="Search notes...">
+                    <div id="filterControls">
+                        <div id="tagFilters">
+                            <h4>Filter by Tags:</h4>
+                            <!-- Tag checkboxes will be dynamically added here -->
+                        </div>
+                        <div id="folderFilters">
+                            <h4>Filter by Folders:</h4>
+                            <!-- Folder checkboxes will be dynamically added here -->
+                        </div>
+                        <div id="dateFilters">
+                            <h4>Filter by Date:</h4>
+                            <label>
+                                Start Date:
+                                <input type="date" name="dateStart">
+                            </label>
+                            <label>
+                                End Date:
+                                <input type="date" name="dateEnd">
+                            </label>
+                        </div>
+                    </div>
+                    <div id="graphSettings">
+                        <h4>Graph Settings:</h4>
+                        <label>
+                            Node Repulsion:
+                            <input type="range" id="nodeRepulsion" min="1" max="10" value="5">
+                        </label>
+                        <label>
+                            Link Distance:
+                            <input type="range" id="linkDistance" min="10" max="200" value="100">
+                        </label>
+                        <button id="resetGraphBtn">Reset Graph</button>
+                    </div>
+                  <div id="zoomIndicator">Zoom: 2.00x</div>
+                </div>
+                <div id="graphContainer"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.0.3/marked.min.js"></script>
+    <script src="https://unpkg.com/d3@5.16.0/dist/d3.min.js"></script>
+    <script src="https://unpkg.com/force-graph"></script>
+    <script src="script.js"></script>
+</body>
+</html>
